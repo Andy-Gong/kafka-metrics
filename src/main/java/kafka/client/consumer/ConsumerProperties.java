@@ -3,6 +3,8 @@ package kafka.client.consumer;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
 @Configuration
 @ConfigurationProperties(prefix = "consumer")
 public class ConsumerProperties {
@@ -10,13 +12,13 @@ public class ConsumerProperties {
     private String groupId;
     private boolean autoCommit;
     private String topic;
-    private String reporters;
+    private List<String> reporters;
 
-    public String getReporters() {
+    public List<String> getReporters() {
         return reporters;
     }
 
-    public void setReporters(String reporters) {
+    public void setReporters(List<String> reporters) {
         this.reporters = reporters;
     }
 

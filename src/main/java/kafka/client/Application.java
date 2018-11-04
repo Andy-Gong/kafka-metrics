@@ -2,6 +2,8 @@ package kafka.client;
 
 import kafka.client.consumer.ConsumerProperties;
 import kafka.client.consumer.ConsumerThread;
+import kafka.client.metrics.impl.CSVKafkaReporter;
+import kafka.client.metrics.impl.ConsoleKafkaReporter;
 import kafka.client.metrics.impl.Sl4jKafkaReporter;
 import kafka.client.producer.ProducerProperties;
 import kafka.client.producer.ProducerThread;
@@ -26,6 +28,8 @@ public class Application {
         executorService.submit(new ProducerThread(producerProperties));
         executorService.submit(new ConsumerThread(consumerProperties));
         executorService.submit(new Sl4jKafkaReporter());
+        executorService.submit(new CSVKafkaReporter());
+        executorService.submit(new ConsoleKafkaReporter());
         System.out.println("Hello World!");
     }
 

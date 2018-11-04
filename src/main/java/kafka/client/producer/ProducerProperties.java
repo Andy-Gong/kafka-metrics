@@ -3,6 +3,8 @@ package kafka.client.producer;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
 @Configuration
 @ConfigurationProperties(prefix = "producer")
 public class ProducerProperties {
@@ -12,13 +14,13 @@ public class ProducerProperties {
     private String acks;
     private int linger;
     private String topic;
-    private String reporters;
+    private List<String> reporters;
 
-    public String getReporters() {
+    public List<String> getReporters() {
         return reporters;
     }
 
-    public void setReporters(String reporters) {
+    public void setReporters(List<String> reporters) {
         this.reporters = reporters;
     }
 

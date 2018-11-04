@@ -16,7 +16,7 @@ public class CSVKafkaReporter extends KafkaReporter {
         return CsvReporter.forRegistry(metricRegistry)
                 .convertRatesTo(TimeUnit.SECONDS)
                 .convertDurationsTo(TimeUnit.MILLISECONDS)
-                .build(new File("/Users/xgong/data/"));
+                .build(new File("~/data/"));
     }
 
     @Override

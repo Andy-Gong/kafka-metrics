@@ -5,14 +5,20 @@ consumer:
     groupId: test
     autoCommit: true
     topic: HeartBit
-    reporters: kafka.client.metrics.impl.Sl4jKafkaReporter
+    reporters:
+      - kafka.client.metrics.impl.CSVKafkaReporter
+      - kafka.client.metrics.impl.Sl4jKafkaReporter
+      - kafka.client.metrics.impl.ConsoleKafkaReporter
 producer:
     server: localhost:9092
     batchSize: 100000
     acks: all
     linger: 1000
     topic: HeartBit
-    reporters: kafka.client.metrics.impl.Sl4jKafkaReporter
+    reporters:
+      - kafka.client.metrics.impl.CSVKafkaReporter
+      - kafka.client.metrics.impl.Sl4jKafkaReporter
+      - kafka.client.metrics.impl.ConsoleKafkaReporter
 logging:
     level:
       org.apache.kafka: INFO
