@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+	<appender name="KafkaMetricsLogFileAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${LOG_PATH}/kafka-metrics.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/kafka-metrics.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+			<maxFileSize>100MB</maxFileSize>
+			<maxHistory>7</maxHistory>
+			<totalSizeCap>2GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSSZ},loggerLevel=%-5level,logger=%logger{36},threadId=%thread,%mdc{},msg=%msg%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSSZ} [%thread] %-5level %logger{36}- %msg%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="kafka.client" additivity="false" level="INFO">
+		<appender-ref ref="KafkaMetricsLogFileAppender" />
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
