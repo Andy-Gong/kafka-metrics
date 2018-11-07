@@ -1,5 +1,5 @@
 server:
-    port: 8080
+    port: 8090
 consumer:
     server: localhost:9092
     groupId: test
@@ -9,6 +9,7 @@ consumer:
       - kafka.client.metrics.impl.CSVKafkaReporter
       - kafka.client.metrics.impl.Sl4jKafkaReporter
       - kafka.client.metrics.impl.ConsoleKafkaReporter
+      - kafka.client.metrics.impl.GraphiteKafkaReporter
 producer:
     server: localhost:9092
     batchSize: 100000
@@ -19,6 +20,7 @@ producer:
       - kafka.client.metrics.impl.CSVKafkaReporter
       - kafka.client.metrics.impl.Sl4jKafkaReporter
       - kafka.client.metrics.impl.ConsoleKafkaReporter
+      - kafka.client.metrics.impl.GraphiteKafkaReporter
 logging:
     level:
       org.apache.kafka: INFO

@@ -43,6 +43,12 @@
             <artifactId>metrics-core</artifactId>
             <version>4.0.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.dropwizard.metrics/metrics-graphite -->
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-graphite</artifactId>
+            <version>4.0.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

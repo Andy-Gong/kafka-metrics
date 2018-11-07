@@ -1,23 +1,27 @@
 package kafka.client.metrics.impl;
 
-import com.codahale.metrics.CsvReporter;
+import com.codahale.metrics.MetricFilter;
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.ScheduledReporter;
+import com.codahale.metrics.graphite.GraphiteReporter;
+import com.codahale.metrics.graphite.PickledGraphite;
 import kafka.client.metrics.KafkaReporter;
 
-import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class CSVKafkaReporter extends KafkaReporter {
+public class GraphiteKafkaReporter extends KafkaReporter {
     private final static MetricRegistry metricRegistry = new MetricRegistry();
-    private final String filePath = "/csv/";
+    private static final String host = "localhost";
+    private static final int port = 2004;
 
     @Override
     public ScheduledReporter scheduledReporter() {
-        return CsvReporter.forRegistry(metricRegistry)
+        return GraphiteReporter.forRegistry(metricRegistry)
+                .prefixedWith("test")
                 .convertRatesTo(TimeUnit.SECONDS)
                 .convertDurationsTo(TimeUnit.MILLISECONDS)
-                .build(new File(System.getProperty("user.dir") + filePath));
+                .filter(MetricFilter.ALL)
+                .build(new PickledGraphite(this.host, this.port));
     }
 
     @Override
