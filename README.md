@@ -18,7 +18,7 @@ git clone https://github.com/Andy-Gong/kafka-metrics.git
 
 1. Run with source code
 
-Find Application class and run it.
+   Find Application class and run it.
 
 2. Run with jar
 
