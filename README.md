@@ -1,7 +1,13 @@
 # kafka-client-metrics
 This project describes how to gather kafka client metrics, and it provides 4 reporters which include ConsoleKafkaReporter, CSVKafkaReporter, GraphiteKafkaReporter, Sl4jKafkaReporter.
 
+# Percondition
+- Maven 3 or greater
+- java 8
+
+
 # Run application
+
 ```
 git clone https://github.com/Andy-Gong/kafka-metrics.git
 ```
