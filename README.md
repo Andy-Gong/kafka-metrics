@@ -12,15 +12,17 @@ This project describes how to gather kafka client metrics, and it provides 4 rep
 
 # Run application
 
+1. Download source code
+
 ```
 git clone https://github.com/Andy-Gong/kafka-metrics.git
 ```
 
-1. Run with source code
+2. Run with source code
 
    Find Application class and run it.
 
-2. Run with jar
+3. Run with jar
 
 ```
 mvn clean install
