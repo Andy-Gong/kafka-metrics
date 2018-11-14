@@ -15,6 +15,15 @@ public class ProducerProperties {
     private int linger;
     private String topic;
     private List<String> reporters;
+    private int batchCount;
+
+    public int getBatchCount() {
+        return batchCount;
+    }
+
+    public void setBatchCount(int batchCount) {
+        this.batchCount = batchCount;
+    }
 
     public List<String> getReporters() {
         return reporters;

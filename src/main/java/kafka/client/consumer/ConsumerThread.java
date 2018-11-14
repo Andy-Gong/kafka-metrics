@@ -40,9 +40,7 @@ public class ConsumerThread implements Runnable {
             while (true) {
                 try {
                     ConsumerRecords<String, String> records = consumer.poll(1000);
-                    for (ConsumerRecord<String, String> record : records) {
-                        System.out.printf("Consume message, offset = %d, key = %s, value = %s%n", record.offset(), record.key(), record.value());
-                    }
+                        System.out.printf("Consume message count = %d%n", records.count());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

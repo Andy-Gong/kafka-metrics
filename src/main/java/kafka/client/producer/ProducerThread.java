@@ -40,10 +40,13 @@ public class ProducerThread implements Runnable {
             Producer<String, String> producer = new KafkaProducer(props);
             while (true) {
                 try {
-                    RecordMetadata result = (RecordMetadata) producer.send(new ProducerRecord(producerConfig.getTopic(), "test", "test")).get();
-                    System.out.printf("Send message,  offset = %d, partition= %s%n", result.offset(), result.partition());
+                    for (int i = 0; i < producerConfig.getBatchCount(); i++) {
+                        producer.send(new ProducerRecord(producerConfig.getTopic(), "test", "test"));
+                    }
+                    producer.flush();
+                    System.out.println("Send message successfully");
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(10);
                     } catch (InterruptedException e) {
                     }
                 } catch (Exception e) {

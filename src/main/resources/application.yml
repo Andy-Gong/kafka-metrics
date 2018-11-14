@@ -12,10 +12,11 @@ consumer:
       - kafka.client.metrics.impl.GraphiteKafkaReporter
 producer:
     server: localhost:9092
-    batchSize: 100000
+    batchSize: 10000000
     acks: all
-    linger: 1000
+    linger: 100
     topic: HeartBit
+    batchCount: 1200
     reporters:
       - kafka.client.metrics.impl.CSVKafkaReporter
       - kafka.client.metrics.impl.Sl4jKafkaReporter
