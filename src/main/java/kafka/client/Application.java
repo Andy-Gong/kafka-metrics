@@ -25,7 +25,7 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-        ExecutorService executorService = Executors.newFixedThreadPool(20);
+        ExecutorService executorService = Executors.newCachedThreadPool();
         executorService.submit(new ProducerThread(producerProperties));
         executorService.submit(new ConsumerThread(consumerProperties));
         executorService.submit(new Sl4jKafkaReporter());
