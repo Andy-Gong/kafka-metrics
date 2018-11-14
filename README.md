@@ -1,12 +1,14 @@
 # Build Kafka Client Metrics in Graphite
-This project describes how to gather kafka client metrics, and it provides 4 reporters:
+
+This project describes how to gather kafka client metrics, and reports them to graphite server. You also can see the change of kafka metrics, e.g request-rate, request size when you change your producer configurations, like batch.size, linger.ms.
+
+It also gives other reporter methods, like:
 - ConsoleKafkaReporter, which will output kafka client metrics in the console
 - CSVKafkaReporter, which will output kafka client metrics into csv file, default path is {project dir}/csv/ 
-- GraphiteKafkaReporter, which will send kafka client metrics to Graphite server, the default host is 'localhost', port is '2004', [this repository](https://github.com/hopsoft/docker-graphite-statsd) introduces how to start a graphite service with docker image.
 - Sl4jKafkaReporter, which output kafka client metrics into logs, default path is {project dir}/logs/
 
 # Percondition
-- Maven 3 or greater
+- Maven 3++
 - java 8
 
 
@@ -44,3 +46,5 @@ docker run -d\
  hopsoft/graphite-statsd
 ```
 Open graphite in brower: http://localhost/dashboard
+
+Detail information about hopsoft/graphite-statsd, you can find in [this repository](https://github.com/hopsoft/docker-graphite-statsd).
