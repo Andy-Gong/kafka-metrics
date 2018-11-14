@@ -28,9 +28,10 @@ git clone https://github.com/Andy-Gong/kafka-metrics.git
 mvn clean install
 java -jar target/kafka-client-metrics-1.0-SNAPSHOT.jar
 ```
+
 # Run graphite
 
-Start graphite with image, 
+Start graphite with docker image, 
 ```
 docker run -d\
  --name graphite\
