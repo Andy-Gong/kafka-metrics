@@ -42,5 +42,4 @@ docker run -d\
  -p 8126:8126\
  hopsoft/graphite-statsd
 ```
-Open graphite in brower
-  http://localhost/dashboard
+Open graphite in brower: http://localhost/dashboard
