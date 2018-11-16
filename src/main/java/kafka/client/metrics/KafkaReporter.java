@@ -13,12 +13,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public abstract class KafkaReporter implements MetricsReporter, Runnable {
-    private final ScheduledReporter scheduledReporter;
     private final Set<KafkaMetric> kafkaMetrics = new HashSet<>();
-
-    public KafkaReporter() {
-        scheduledReporter = scheduledReporter();
-    }
 
     public abstract ScheduledReporter scheduledReporter();
 
@@ -108,6 +103,6 @@ public abstract class KafkaReporter implements MetricsReporter, Runnable {
      */
     @Override
     public void run() {
-        scheduledReporter.start(30, TimeUnit.SECONDS);
+        scheduledReporter().start(30, TimeUnit.SECONDS);
     }
 }
